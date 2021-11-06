@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="https://cdn.iconscout.com/icon/free/png-256/jquery-10-1175155.png" type="image/icon type">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -10,8 +11,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="exampleCode.css"/>
+        <link rel="stylesheet" href="sideBar.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <title>Mutiple</title>
+        <title>jQuery</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
             :root{
@@ -21,13 +23,9 @@
            body{
                 margin: 0;
                 font-family: 'Sriracha', cursive; 
-    
+            
             }
 
-            #map {
-                height: 400px;  
-                width: 90%;  
-            }
             input{
                 margin-left: 2.5vw;
                 margin-right: 2.5vw;
@@ -55,36 +53,14 @@
             p{
                 text-indent: 20px;
             }
-            .nav-sidebar{
-                position: fixed;
-                top: 10px;
-                left: 10px;
-            }
-            .nav-sidebar button{
-                position: relative;
-                display: block;
-                height: 40px;
-                border: none;
-                border-bottom: 1px solid rgb(39, 230, 211);
-                background:rgb(0, 221, 199);
-                color: white;
-            }
-            .nav-sidebar .first-btn{
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-            }
-            .nav-sidebar .last-btn{
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-                border: none;
-
-            }
-            .nav-sidebar button:hover{
-                background:rgb(2, 179, 161);
-            }
-            .content{
+            
+            .container{
                 position: relative;
                 background: white;
+                z-index: 0;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px rgb(0 0 0 / 40%);
+                margin-bottom: 5rem;
             }
            
             .toDo li b{
@@ -93,46 +69,75 @@
             .syntaxShow{
                 color: orange
             }
-            .subNav button{
-                background: rgb(238, 236, 236);
-                border-bottom: 1px solid rgb(216, 216, 216);
-                color: grey;
-                width: 100%;
-                text-align: left;
-                width: 95%;
-                margin: auto;
+            .logo{
+                margin: -15%;
+                margin-left: 0;
+                filter: invert(100%) hue-rotate(180deg);
             }
-            .subNav button:hover{
-                background: rgb(216, 216, 216);
+            ul{
+                padding-bottom: 10px;
             }
-            .collapseBtn{
-                border-left: 1px solid rgb(39, 230, 211);
+            .web-preview{
+                display: block;
+                width: 90%;
+                margin: 10px;
             }
     </style>
     </head>
     <body>
-        <div class="row" style="background: rgb(211, 206, 206); width: 100vw;">
-            <div class="col-3"></div>
-            <div class="col-2 nav-sidebar">
-                <a href="#header1"><button class="first-btn col-12"> jQuery คืออะไร </button></a>
-                <a href="#header2"><button class="col-12"> วิธีการเรียกใช้งาน </button></a>
-                <button class="collapseBtn" style="width: 20%; float: right;" data-toggle="collapse" data-target="#subNav1" aria-expanded='true'>v</button>
-                <a href="#header3"><button style="width: 80%;"> การใช้งาน </button></a>
-                <div id="subNav1" class="collapse subNav">
-                    <a href="#subHeader3_1"><button> การหา selector </button></a>
-                    <a href="#subHeader3_2"><button> jQuery Event Functions </button></a>
-                    <a href="#subHeader3_3"><button> jQuery Effects </button></a>
+        <div class="row" style="background: #0769ad;; width: 100vw;">
+            <div class="col-3 sidebar-container" >
+                <div class="col-12 nav-sidebar sidebar">
+                    <a href="#header1"><button class="first-btn col-12"> jQuery คืออะไร </button></a>
+                    <a href="#header2"><button class="col-12"> วิธีการเรียกใช้งาน </button></a>
+                    <button class="collapseBtn" style="width: 20%; float: right;" data-toggle="collapse" data-target="#subNav1" aria-expanded='true'>v</button>
+                    <a href="#header3"><button class="containSub" style="width: 80%;"> การใช้งาน </button></a>
+                    <div id="subNav1" class="collapse subNav">
+                        <a href="#subHeader3_1"><button> การหา selector </button></a>
+                        <a href="#subHeader3_2"><button> jQuery Event Functions </button></a>
+                        <a href="#subHeader3_3"><button> jQuery Effects </button></a>
+                        <a href="#subHeader3_4"><button> jQuery DOM </button></a>
+                        <a href="#subHeader3_5"><button> jQuery Traversing </button></a>
+                        <a href="#subHeader3_6"><button> jQuery Ajax </button></a>
+                        <a href="#subHeader3_7"><button> การสร้าง set Method </button></a>
+                    </div>
+                    <a href="#header4"><button class="col-12"> เว็บไซต์ที่มีการใช้งาน jQuery </button></a>
+                    <a href="#header5"><button class="last-btn col-12"> เว็บไซต์อ้างอิง </button></a>
                 </div>
-                
-                <a href="#header4"><button class="col-12"> ตัวอย่างการใช้งาน </button></a>
-                <a href="#header5"><button class="last-btn class="col-12"> การเริ่มต้นใช้งาน </button></a>
+                <script>
+                var sideBtn = $(".nav-sidebar").find("a").children()
+                sideBtn.each((index, el)=>{
+                    $(el.parentElement).click(()=>{
+                        $(".nav-sidebar").find(".selected-btn").first().removeClass("selected-btn")
+                        $(el).addClass("selected-btn");
+                        $
+                    })
+
+
+                })
+                </script>
+                <div class="sidebar  col-12" style="top: 40%">
+                    <div class="name-tag">
+                        <h4 style="color: white; margin-bottom: -10px;"">จัดทำโดย</h4>
+                        <br>
+                        ชื่อ: นายไกรวิน แนวอินทร์
+                        <br>
+                        รหัสนักศักษา: 63070013
+                        <br>
+                    </div>
+                </div>
             </div>
+            
             <div class="content col-8">
-                <div class="container col-10">
-                    <h1>jQuery</h1>
-                    <h2 id="header1">jQuery คืออะไร </h3>
-                    <p><b>jQuery</b> คือ JavaScript Library ที่รองรับการทำงานทุกเบราเซอร์ โดยมีจุดประสงค์ในการแก้ปัญหาการใช้งาน JavaScript ให้ใช้งานได้ง่ายขึ้น เช่น</p> 
+                    <img class="logo" src="https://cdn.freebiesupply.com/logos/thumbs/2x/jquery-1-logo.png" width="60%">
+
+                    <div class="container col-10">
                     <ul>
+                        <h2 id="header1">jQuery คืออะไร </h3>
+                        <p><b>jQuery</b> คือ JavaScript Library ได้รับการออกแบบเพื่อให้ง่ายต่อHTML DOM traversal tree และการจัดการ event , ภาพเคลื่อนไหว CSS และ Ajax
+                        jQuery เป็น free software Open-Source ที่ได้รับใบอนุญาติจาก MIT ในเดือนพฤษภาคม 2019 jQuery ถูกใช้โดย 73% ของเว็บไซต์ยอดนิยม 10 ล้านเว็บไซต์
+                        </p> 
+                    <p>อันนี้เป็นภาพเปรียบเทียบเล็ก ๆ น้อย ๆ</p> 
                         <li>
                             การรวบคำสั่งหลาย ๆ บรรทัด ให้สั้นลง<br>
                             <h3>Javascript</h3>
@@ -145,7 +150,7 @@
                                 }<br>
                                 <br>
                             </code>
-                            <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                            <p class="text-danger">*code ตัวอย่างจาก <a target="_BLANK_" href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
                             <h3>jQuery</h3>
                             <code class="jQueryCodeBox">
                                 <br>
@@ -155,7 +160,7 @@
                                 });<br>
                                 <br>
                             </code>
-                        <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                        <p class="text-danger">*code ตัวอย่างจาก <a target="_BLANK_" href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
                         </li>
                         <li>
                             การเรียกใช้งานคำสั่งประเภท Ajax, DOM ให้ใช้งานได้ง่ายขึ้น
@@ -176,7 +181,7 @@
                                 <br>
                                 <br>
                             </code>
-                            <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                            <p class="text-danger">*code ตัวอย่างจาก <a target="_BLANK_" href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
                             <h3>jQuery</h3>
                             <code class="jQueryCodeBox">
                                 <br>
@@ -192,15 +197,25 @@
                                 });<br>
                                 <br>
                             </code>
-                            <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                            <p class="text-danger">*code ตัวอย่างจาก <a target="_BLANK_" href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
                         </li>
                     </ul>
+                    <h2>ข้อดีหลัก ๆ jQuery</h2>
+                    <ul>
+                        <li>เรียนรู้ได้ง่าย</li>
+                        <li>เขียนน้อยลงให้ทำมากขึ้น</li>
+                        <li>เป็น Open-Source Library</li>
+                        <li>cross-browser</li>
+                        <li>มีความยืดหยุ่นที่สูง</li>
+                    </ul>
+                </div>
+                <div class="container col-10">
                     <h2 id="header2">วิธีการเรียกใช้งาน</h2>
                     <p>
                         สามารถทำการเรียกใช้งาน jQuery ได้ 2 รูปแบบหลัก ๆ 
                         <ul>
                             <li>
-                                ดาวน์โหลดไฟล์จาก <a href="https://jquery.com/download/">jquery.com/download/</a> และเรียกใช้งานโดยตรง<br>
+                                ดาวน์โหลดไฟล์จาก <a target="_BLANK_" href="https://jquery.com/download/">jquery.com/download/</a> และเรียกใช้งานโดยตรง<br>
                                 <code>
                                     <br>
                                     <span id="importEx1"></span><br>
@@ -217,12 +232,14 @@
                             </li>
                         </ul>
                     </p>
+                </div>
+                <div class="container col-10">
                     <h2 id="header3">การใช้งาน</h2>
                     <p>
                         jQuery จะทำงานใน tag script <br>
                         <ul class="toDo">
                             <li>
-                                <h4>การหา selector</h4>
+                                <h4 id="subHeader3_1">การหา selector</h4>
                                 $(selector).action()
                                 โดยมี selector แบบพื้นฐานดังนี้
                                     <ol>
@@ -249,17 +266,21 @@
                                     และ action คือ method ต่าง ๆ ที่จะให้ element นั้น ๆ กระทำ
                                     <div class="row">
                                         <code class="col-6">
+                                            <br>
                                             $("p:first").css("background-color","yellow");
                                         </code>
                                         <code class="col-5">
-                                            <p>first paragraph</p>
-                                            <p>second paragraph</p>
+                                            <p id="pTest">first paragraph</p>
+                                            <p id="pTest">second paragraph</p>
                                         </code>
+                                        <script>
+                                            $("#pTest:first").css("background-color","yellow");
+                                        </script>
                                     </div>
                                         
                             </li>
                             <li>
-                                <h4 id="subHeader3_1">jQuery Event Functions</h4>
+                                <h4 id="subHeader3_2">jQuery Event Functions</h4>
                                 ไว้ใช้สำหรับ handle event ต่าง ๆ ที่ผู้ใช้จะกระทำต่อหน้าเว็บ เช่น การคลิก ดับเบิลคลิก การวางเมาส์ เป็นต้น
                                 โดยจะมี syntax ดังนี้
                                 <ol>
@@ -450,7 +471,7 @@
                                 </ol>
                             </li>
                             <li>
-                                <h4 id="subHeader3_2">jQuery Effects</h4>
+                                <h4 id="subHeader3_3">jQuery Effects</h4>
                                 jQuery Effects คือเอฟเฟคต่างๆของ jQuery ใช้สำหรับการเพิ่มลูกเล่นต่าง ๆ ให้กับหน้าเว็บ <br>
                                 <b style="color:rgb(233, 123, 6)">syntax:</b> $(selector).Effect(speed, callback)<br>
                                 <small class="text-info">**speed จะกำหนดเป็น slow, normal, fast หรือกำหนดค่าเป็น ms</small><br>
@@ -512,7 +533,7 @@
                                             state?(state=false): (state=true);
                                             $("#Ball4").animate({
                                                 borderRadius: state?'50%': '10px',
-                                                left: state?'10%': '70%'
+                                                left: state?'10%': '70%',
                                             }, 100, ()=>{
                                                 state?($("#Ball4").css("background", "red")):($("#Ball4").css("background", "blue"))
                                             });
@@ -521,7 +542,7 @@
                                 </div>
                             </li>
                             <li>
-                                <h4 id="subHeader3_3">jQuery DOM</h4>
+                                <h4 id="subHeader3_4">jQuery DOM</h4>
                                 DOM = Document Object Model<br>
                                 <p>
                                     DOM คือ การมองส่วนต่างๆของหน้าเว็บให้เป็น object ทำให้เราสามารถแยกแยะ
@@ -553,14 +574,148 @@
                                         </table>
                                     </li>
                                 </ol>
+                            <li>
+                                <h4 id="subHeader3_5">jQuery Traversing</h4>
+                                <p>
+                                    จะใช้ในการ "ค้นหา" (หรือเลือก) องค์ประกอบ HTML อยู่บนพื้นฐานของความสัมพันธ์กับองค์ประกอบอื่น ๆ เริ่มต้นด้วยหนึ่งตัวเลือกและย้ายผ่านการคัดเลือกว่าจนกว่าจะถึงองค์ประกอบที่คุณต้องการ
+                                </p>
+                                <h4>Ancestors</h4><small class="text-info">**บรรพบุรุษ = คลาสที่ครอบ selector อยู่</small>
+                                <table class="table table-striped">
+                                    <tr><th class="col-6">Method</th><td>คำอธิบาย</td></tr>
+                                    <tr><td>.parent()</td><td>คืนค่าบรรพบุรุษ 1 ชั้น </td></tr>
+                                    <tr><td>.parents()</td><td>คืนค่าบรรพบุรุษทั้งหมด</td></tr>
+                                    <tr><td>.parentsUntil()</td><td>คืนค่าบรรพบุรุษทั้งหมดระหว่าง tag ที่ใส่ไว้ใน parameter</td></tr>
+                                </table>
+                                <h4>Descendants</h4><small class="text-info">**ลูก = คลาสที่ถูก selector ครอบอยู่</small>
+                                <table class="table table-striped">
+                                    <tr><th class="col-6">Method</th><td>คำอธิบาย</td></tr>
+                                    <tr><td>.children()</td><td>คืนค่าลูก </td></tr>
+                                    <tr><td>.find()</td><td>คืนค่าelement ที่ตรงกับ parameter ทั้งหมดที่ถูก selector ครอบอยู่รวมลูกของลูกต่อ ๆ ไปด้วย </td></tr>
+                                </table>
+                                <h4>Siblings</h4><small class="text-info">**พี่น้อง = element ที่อยู่ชั้นเดียวกัน</small>
+                                <table class="table table-striped">
+                                    <tr><th class="col-6">Method</th><td>คำอธิบาย</td></tr>
+                                    <tr><td>.siblings()</td><td>คืนค่า พี่น้อง</td></tr>
+                                    <tr><td>.next()</td><td>คืนค่า พี่น้องถัดจาก selector </td></tr>
+                                    <tr><td>.nextAll()</td><td>คืนค่า พี่น้องทุกตัวที่ถัดจาก selector</td></tr>
+                                    <tr><td>.nextUntil()</td><td>คืนค่า พี่น้องตั้งแต่ element ที่อยู่ถัดจาก selector ถึง parameter ที่กำหนดไว้</td></tr>
+                                    <tr><td>.prev()</td><td>คืนค่า พี่น้องก่อน selector</td></tr>
+                                    <tr><td>.prevAll()</td><td>คืนค่า พี่น้องก่อน selector ทุกตัว</td></tr>
+                                    <tr><td>.prevUntil()</td><td>คืนค่า พี่น้องตั้งแต่ element ที่อยู่ก่อน selector ถึง parameter ที่กำหนดไว้</td></tr>
+                                </table>
+                                <h4>Filtering</h4>
+                                <table class="table table-striped">
+                                    <tr><th class="col-6">Method</th><td>คำอธิบาย</td></tr>
+                                    <tr><td>.first()</td><td>คืนค่า element ตัวแรกที่ตรงกับ selector </td></tr>
+                                    <tr><td>.last()</td><td>คืนค่า element ตัวสุดท้ายที่ตรงกับ selector </td></tr>
+                                    <tr><td>.eq()</td><td>คืนค่า element ที่ตรงกับ selector ตัวที่ n (n = index ที่รับค่ามาจาก parameter) </td></tr>
+                                    <tr><td>.filter()</td><td>คืนค่า  element ที่ตรงกับ selector ทุกตัวตัวที่มีเงื่อนไขตรงกับ parameter </td></tr>
+                                    <tr><td>.not()</td><td>คืนค่า  element ที่ตรงกับ selector ยกเว้นตัวที่มีเงื่อนไขตรงกับ parameter ทุกตัว </td></tr>
+                                </table>
+                            </li>
+                            <li>
+                                <h4 id="subHeader3_6">jQuery Ajax</h4>
+                                Ajax = Asynchronous JavaScript and XML
+                                <p>
+                                    Ajax คือ เทคนิคการแรกเปลี่ยนข้อมูลกับ server และอัพเดทหน้าเว็บโดยไม่ต้องมีการ reload ทั้งหน้าเว็บ
+                                </p>
+                                <table class="table table-striped">
+                                    <tr><th class="col-2">Method</th><th>Syntax</th><th>คำอธิบาย</th></tr>
+                                    <tr><td>$.ajax()</td><td>$.ajax(url); หรือ $.ajax(url,[options]);</td><td>request Ajax aysnc</td></tr>
+                                    <tr><td>.get()</td><td>$(selector).get(url, [data],[callback]);</td><td>ส่ง GET request ไปที่ server และคึงข้อมูลออกมา</td></tr>
+                                    <tr><td>.post()</td><td>$(selector).post(url,[data],[callback],[type]);</td><td>ส่ง POST request ไปที่ server และ submit ข้อมูลลง server</td></tr>
+                                    <tr><td>.load()</td><td>$(selector).load(url,[data],[callback]);</td><td>โหลดข้อมูลเข้าสู่ selector</td></tr>
+                                </table>
+                                <code>
+                                    $.ajax({
+                                        <div>
+                                            type: 'GET',
+                                            url: 'send-ajax-data.php',
+                                            dataType: "JSON", // data type expected from server
+                                            success: function (data) {
+                                            <div>
+                                                console.log(data);
+                                            </div>
+                                            },
+                                            error: function(error) {
+                                            <div>
+                                                console.log('Error: ' + error);
+                                            </div>
+                                        </div>
+                                            });
+                                </code>
+                                </li>
+                                <li>
+                                    <h4 id="subHeader3_7">การสร้าง set Method</h4>
+                                    <b style="color:rgb(233, 123, 6)">systax:</b> ( function($) {
+                                    $.fn.function_name = function() {};
+                                    })(jQuery);
+                                    <div class="row">
+                                        <code class="col-6">
+                                            (function($){
+                                                <div>
+                                                    $.fn.add2 = function(){
+                                                    <div>
+                                                        return (parseInt(this.text())+2);
+                                                    </div>
+                                                    }
+                                                </div>
+                                                }<br>
+                                                )(jQuery)<br>
+                                                $("#btnAdd2").click(function(){
+                                                <div>
+                                                    $("#num").text($("#num").add2())
+                                                </div>
+                                            })
+                                        </code>
+                                        <code class="col-5">
+                                            <span id="num" style="font-size: 10rem">1</span>
+                                            <button id="btnAdd2" class="btn btn-primary" style="float:right">+2</button>
+                                        </code>
+                                        </div>
+                                        <script>
+                                            (function($){
+                                                $.fn.add2 = function(){
+                                                    return (parseInt(this.text())+2);
+
+                                                }
+                                            }
+                                            )(jQuery)
+                                            $("#btnAdd2").click(function(){
+                                                $("#num").text($("#num").add2())
+                                            })
+                                        </script>
+                                    </li>
+                                </ol>
                                 
                             </li>
                         </ul>
 
                     </p>
-                    <h2>ตัวอย่างการใช้งาน</h2>
+                </div>
+                <div class="container col-10">
+                    <h2 id="header4">เว็บไซต์ที่มีการใช้งาน jQuery</h2>
                     <p>
-                        
+                        <ol>
+                            <li><a target="_BLANK_" href="https://www.amazon.com/">amazon</a><img class="web-preview img-thumbnail" src="amzonImg.png"/></li>
+                            <li><a target="_BLANK_" href="https://zoom.us/">zoom</a><img class="web-preview img-thumbnail" src="zoom.png"/></li>
+                            <li><a target="_BLANK_" href="https://www.yahoo.com/">yahoo</a><img class="web-preview img-thumbnail" src="yahoo.png"/></li>
+                        </ol>
+                    </p>
+                    <br>
+                </div>
+                <div class="container col-10">
+                    <h2 id="header5">อ้างอิง</h2>
+                    <p style="text-indent: 0;">
+                        <table class="table table-striped">
+                            <tr><td>จุดที่นำไปใช้</td><td> เว็บอ้างอิง</td></tr>
+                            <tr><td>ตัวอย่างเปรียบเทียบข้างต้น</td><td><a target="_BLANK_" href="http://share.olanlab.com/th/it/blog/view/36">olanlab</a></td></tr>
+                            <tr><td>ข้อดีหลัก</td><td><a target="_BLANK_" href="https://tekslate.com/11-benefits-jquery-every-web-designers-know">tekslate</a></td></tr>
+                            <tr><td>การใช้ selector</td><td><a target="_BLANK_" href="https://www.mindphp.com/%E0%B8%9A%E0%B8%97%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99%E0%B9%8C/%E0%B8%AA%E0%B8%AD%E0%B8%99-jquery/2791-%E0%B8%9A%E0%B8%97%E0%B8%97%E0%B8%B5%E0%B9%88-5-jquery-effect-%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88-3-animation.html">mindphp</a></td></tr>
+                            <tr><td>jQuery Methods</td><td><a target="_BLANK_" href="https://www.tutorialsteacher.com/jquery/">tutorialsteacher</a></td></tr>
+                            <tr><td>การสร้าง set Method</td><td><a target="_BLANK_" href="http://code.function.in.th/jquery/introduce/make-set-method">function.in.th</a></td></tr>
+                            <tr><td>jQuery Traversing</td><td><a target="_BLANK_" href="https://www.w3schools.com/jquery/jquery_traversing.asp">w3schools</a></td></tr>
+                        </table>
                     </p>
                 </div>
             </div>

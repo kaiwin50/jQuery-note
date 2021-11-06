@@ -45,3 +45,9 @@
     content: "<input type='text'/>";
 }
 
+#exNum::before{
+    content: "<span id=\"num\"/>";
+}
+#exNum::after{
+    content: "</span>";
+}
