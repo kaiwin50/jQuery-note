@@ -1,0 +1,560 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="exampleCode.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Mutiple</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+            :root{
+                scroll-behavior: smooth;
+                overflow-x: hidden;
+            }
+           body{
+                margin: 0;
+                font-family: 'Sriracha', cursive; 
+    
+            }
+
+            #map {
+                height: 400px;  
+                width: 90%;  
+            }
+            input{
+                margin-left: 2.5vw;
+                margin-right: 2.5vw;
+            }
+            h3{
+                margin: 0;
+                color:rgb(0, 221, 199);
+            }
+            h4{
+                color:rgb(233, 123, 6);
+            }
+            code{
+                display: block;
+                background: rgb(238, 237, 237);
+                margin: 10px;
+                color: #c7254e;
+            }
+            code b{
+                color: blueviolet;
+            }
+            code div, p div{
+                margin-left: 3%;
+                margin-bottom: 0;
+            }
+            p{
+                text-indent: 20px;
+            }
+            .nav-sidebar{
+                position: fixed;
+                top: 10px;
+                left: 10px;
+            }
+            .nav-sidebar button{
+                position: relative;
+                display: block;
+                height: 40px;
+                border: none;
+                border-bottom: 1px solid rgb(39, 230, 211);
+                background:rgb(0, 221, 199);
+                color: white;
+            }
+            .nav-sidebar .first-btn{
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            .nav-sidebar .last-btn{
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border: none;
+
+            }
+            .nav-sidebar button:hover{
+                background:rgb(2, 179, 161);
+            }
+            .content{
+                position: relative;
+                background: white;
+            }
+           
+            .toDo li b{
+                color:rgb(0, 221, 199);
+            }
+            .syntaxShow{
+                color: orange
+            }
+            .subNav button{
+                background: rgb(238, 236, 236);
+                border-bottom: 1px solid rgb(216, 216, 216);
+                color: grey;
+                width: 100%;
+                text-align: left;
+                width: 95%;
+                margin: auto;
+            }
+            .subNav button:hover{
+                background: rgb(216, 216, 216);
+            }
+            .collapseBtn{
+                border-left: 1px solid rgb(39, 230, 211);
+            }
+    </style>
+    </head>
+    <body>
+        <div class="row" style="background: rgb(211, 206, 206); width: 100vw;">
+            <div class="col-3"></div>
+            <div class="col-2 nav-sidebar">
+                <a href="#header1"><button class="first-btn col-12"> jQuery คืออะไร </button></a>
+                <a href="#header2"><button class="col-12"> วิธีการเรียกใช้งาน </button></a>
+                <button class="collapseBtn" style="width: 20%; float: right;" data-toggle="collapse" data-target="#subNav1" aria-expanded='true'>v</button>
+                <a href="#header3"><button style="width: 80%;"> การใช้งาน </button></a>
+                <div id="subNav1" class="collapse subNav">
+                    <a href="#subHeader3_1"><button> การหา selector </button></a>
+                    <a href="#subHeader3_2"><button> jQuery Event Functions </button></a>
+                    <a href="#subHeader3_3"><button> jQuery Effects </button></a>
+                </div>
+                
+                <a href="#header4"><button class="col-12"> ตัวอย่างการใช้งาน </button></a>
+                <a href="#header5"><button class="last-btn class="col-12"> การเริ่มต้นใช้งาน </button></a>
+            </div>
+            <div class="content col-8">
+                <div class="container col-10">
+                    <h1>jQuery</h1>
+                    <h2 id="header1">jQuery คืออะไร </h3>
+                    <p><b>jQuery</b> คือ JavaScript Library ที่รองรับการทำงานทุกเบราเซอร์ โดยมีจุดประสงค์ในการแก้ปัญหาการใช้งาน JavaScript ให้ใช้งานได้ง่ายขึ้น เช่น</p> 
+                    <ul>
+                        <li>
+                            การรวบคำสั่งหลาย ๆ บรรทัด ให้สั้นลง<br>
+                            <h3>Javascript</h3>
+                            <code class="jsCodeBox">
+                                <br>
+                                <b>var</b> hiddenBox = document.getElementById("banner-message");<br>
+                                <b>var</b> button = document.getElementById("button-container");<br>
+                                button.onclick = function() {<br>
+                                    <div>hiddenBox.style.display = 'none';</div>
+                                }<br>
+                                <br>
+                            </code>
+                            <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                            <h3>jQuery</h3>
+                            <code class="jQueryCodeBox">
+                                <br>
+                                <b>var</b> hiddenBox = $("#banner-message");<br>
+                                $("button#button-container").on("click",function(event){<br>
+                                    <div>hiddenBox.show();</div>
+                                });<br>
+                                <br>
+                            </code>
+                        <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                        </li>
+                        <li>
+                            การเรียกใช้งานคำสั่งประเภท Ajax, DOM ให้ใช้งานได้ง่ายขึ้น
+                            <br>
+                            <h3>Javascript</h3>
+                            <code class="jsCodeBox">
+                                <br>
+                                <b>var</b> http = new getXMLHttpRequestObject();<br>
+                                <br>
+                                http.open("GET", "/api/getWeather?zipcode=11001", true);<br>
+                                http.onreadystatechange = function() { <br>
+                                    <div>if(http.readyState == 4) {<br>
+                                        <div>document.getElementById('weather-temp').innerHTML = "<strong>" + data + "</strong> degrees";</div>
+                                    }</div>
+                                }<br>
+                                <br>
+                                http.send(null);<br>
+                                <br>
+                                <br>
+                            </code>
+                            <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                            <h3>jQuery</h3>
+                            <code class="jQueryCodeBox">
+                                <br>
+                                $.ajax({
+                                    <div>
+                                    url: "/api/getWeather",<br>
+                                    data: {<br>
+                                    <div>zipcode: 11001</div>
+                                    },<br>
+                                    success: function( data ) {<br>
+                                        <div>$("#weather-temp").html("<strong>" + data + "</strong> degrees");</div>
+                                    }</div>
+                                });<br>
+                                <br>
+                            </code>
+                            <p class="text-danger">*code ตัวอย่างจาก <a href="http://share.olanlab.com/th/it/blog/view/36" target="_BLANK_">olanlab</a></p>
+                        </li>
+                    </ul>
+                    <h2 id="header2">วิธีการเรียกใช้งาน</h2>
+                    <p>
+                        สามารถทำการเรียกใช้งาน jQuery ได้ 2 รูปแบบหลัก ๆ 
+                        <ul>
+                            <li>
+                                ดาวน์โหลดไฟล์จาก <a href="https://jquery.com/download/">jquery.com/download/</a> และเรียกใช้งานโดยตรง<br>
+                                <code>
+                                    <br>
+                                    <span id="importEx1"></span><br>
+                                    <br>
+                                </code>
+                            </li>
+                            <li>
+                                เรียกใช้งานผ่าน CDN <br>
+                                <code>
+                                    <br>
+                                    <span id="importEx2"></span><br>
+                                    <br>
+                                </code>
+                            </li>
+                        </ul>
+                    </p>
+                    <h2 id="header3">การใช้งาน</h2>
+                    <p>
+                        jQuery จะทำงานใน tag script <br>
+                        <ul class="toDo">
+                            <li>
+                                <h4>การหา selector</h4>
+                                $(selector).action()
+                                โดยมี selector แบบพื้นฐานดังนี้
+                                    <ol>
+                                        <li>
+                                            $("#id")  เป็นการเลือก object ที่มี id
+                                        </li>
+                                        <li>
+                                            $(".class")  การเลือกด้วย classname
+                                        </li>
+                                        <li>
+                                            $("*")  เป็นการเลือก object ทั้งหมด (all selector) 
+                                        </li>
+                                        <li>
+                                            select โดยชื่อ html tag  $("a"), $("p"), $("div") 
+                                        </li>
+                                        <li>
+                                            $("selector1, selector2,.... selectorN")  เป็นการเลือก object แบบหลายๆอัน (multi selector)
+                                        </li>
+                                    </ol>
+                                    <br>
+                                    และ action คือ method ต่าง ๆ ที่จะให้ element นั้น ๆ กระทำ
+                                    <code>
+                                        $("p").css("background-color","yellow");
+                                    </code>
+                            </li>
+                            <li>
+                                <h4 id="subHeader3_1">jQuery Event Functions</h4>
+                                ไว้ใช้สำหรับ handle event ต่าง ๆ ที่ผู้ใช้จะกระทำต่อหน้าเว็บ เช่น การคลิก ดับเบิลคลิก การวางเมาส์ เป็นต้น
+                                โดยจะมี syntax ดังนี้
+                                <ol>
+                                    <li>
+                                        <b>document ready function</b><br>
+                                        <b style="color:rgb(233, 123, 6)">syntax:</b> $(document).ready(function)
+                                        <p>เหตุการณ์จะเกิดขึ้นเมื่อมีการโหลดเอกสาร html เสร็จเรียบร้อยแล้ว</p>
+                                        ตัวอย่าง
+                                        <code>
+                                            <span id="exScript">
+                                                <div>$(document).ready(function() {<br>
+                                                    <div>$("h2").fadeOut(4000);</div>
+                                                });</div>
+                                            </span>
+                                        </code>
+                                        สามารถเขียนย่อได้ดังนี้
+                                        <code>
+                                            <span id="exScript">
+                                                <div>$(function() {<br>
+                                                    <div>$("h2").fadeOut(4000);</div>
+                                                });</div>
+                                            </span>
+                                        </code>                     
+                                    </li>
+                                    <li>
+                                        <b>click method</b><br>
+                                        <b style="color:rgb(233, 123, 6)">syntax:</b> $(selector).click(function)<br>
+                                        <p>เหตุการณ์จะเกิดขึ้นเมื่อมีการคลิกอิลิเมนต์ที่เลือก</p>
+                                        ตัวอย่าง
+                                        <div class="row">
+                                            <code class="col-6">
+                                                <span id="exScript">
+                                                    <div>$(document).ready(function(){
+                                                        <div>$("#btn").click(function(){
+                                                          <div>$("#Ball").toggle();</div>
+                                                        });</div>
+                                                      });</div>
+                                                </span><br>
+                                                <span id="exBody">
+                                                    <div><span id="exButton">hide/show</span><br>
+                                                    <span id="exBall"></span>
+                                                    </div>
+                                                </span>
+                                            </code>
+                                            <code class="col-5">
+                                                <button id="btn" class="btn btn-primary">hide/show</button>
+                                                <div id="Ball" class="Ball"></div>
+                                            </code>
+                                            <script>
+                                                $("#btn").click(function(){
+                                                    $("#Ball").toggle();
+                                                })
+                                            </script>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <b>dblclick method</b><br>
+                                        <b style="color:rgb(233, 123, 6)">syntax:</b> $(selector).dblclick(function)<br>
+                                        <p>เหตุการณ์จะเกิดขึ้นเมื่อมีการดับเบิลคลิกอิลิเมนต์ที่เลือก</p>
+                                        <div class="row">
+                                            <code class="col-6">
+                                                <span id="exScript">
+                                                    <div>$(document).ready(function(){
+                                                        <div>
+                                                            let ballColor = "red";<br>
+                                                            $("#Ball").dblclick(function(){
+                                                        <div>
+                                                            if(ballColor == "red"){
+                                                                <div>$(this).css("background", "blue");<br>
+                                                                ballColor = "blue";</div>
+                                                            }
+                                                            else{
+                                                                <div>$(this).css("background", "red");<br>
+                                                                ballColor = "red";</div>
+                                                            }
+                                                        </div>
+                                                        });</div>
+                                                      });</div>
+                                                </span><br>
+                                                <span id="exBody">
+                                                    <div>
+                                                    <span id="exBall"></span>
+                                                    </div>
+                                                </span>
+                                            </code>
+                                            <code class="col-5">
+                                                <div id="Ball2" class="Ball"></div>
+                                            </code>
+                                            <script>
+                                                let ballColor = "red";
+                                                $("#Ball2").dblclick(function(){
+                                                    if(ballColor == "red"){
+                                                        $(this).css("background", "blue");
+                                                        ballColor = "blue";
+                                                    }
+                                                    else{
+                                                        $(this).css("background", "red");
+                                                        ballColor = "red";
+                                                    }
+                                                })
+                                            </script>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <b>focus method</b><br>
+                                        <b style="color:rgb(233, 123, 6)">syntax:</b> $(selector).focus(function)<br>
+                                        <p>เหตุการณ์จะเกิดขึ้นเมื่อเมาส์ไปอยู่ในตำแหน่งโฟกัส</p>
+                                        <div class="row">
+                                            <code class="col-6">
+                                                <span id="exScript">
+                                                    <div>$(document).ready(function(){
+                                                        <div>
+                                                            $("input").focus(function(){
+                                                                <div>
+                                                                    $(this).css("background", "yellow");
+                                                                </div>
+                                                            });
+                                                            $("input").blur(function(){
+                                                                <div>
+                                                                    $(this).css("background", "white");
+                                                                </div>
+                                                            })
+                                                        </div>
+                                                      });</div>
+                                                </span><br>
+                                                <span id="exBody">
+                                                    <div>
+                                                    <span id="exTf"></span><br>
+                                                    <span id="exTf"></span>
+                                                    </div>
+                                                </span>
+                                            </code>
+                                            <code class="col-5">
+                                                <input type="text"/>
+                                                <input type="text"/>
+                                            </code>
+                                            <script>
+                                                $("input").focus(function(){
+                                                    $(this).css("background", "yellow");
+                                                })
+                                                $("input").blur(function(){
+                                                    $(this).css("background", "white");
+                                                })
+                                            </script>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <b>mouseover method</b><br>
+                                        <b style="color:rgb(233, 123, 6)">syntax:</b> $(selector).mouseover(function)<br>
+                                        <p>เหตุการณ์จะเกิดขึ้นเมื่อเมาส์อยู่เหนืออิลิเมนต์ที่เลือก</p>
+                                        <div class="row">
+                                            <code class="col-6">
+                                                <span id="exScript">
+                                                    <div>$(document).ready(function(){
+                                                        <div>
+                                                            $("#Ball").mouseover(function(){
+                                                                <div>
+                                                                    $(this).css("border-radius", "10px");
+                                                                </div>
+                                                            });
+                                                            $("#Ball").mouseout(function(){
+                                                                <div>
+                                                                    $(this).css("border-radius", "50%");
+                                                                </div>
+                                                            });
+                                                        </div>
+                                                      });</div>
+                                                </span><br>
+                                                <span id="exBody">
+                                                    <div>
+                                                    <span id="exBall"></span>
+                                                    </div>
+                                                </span>
+                                            </code>
+                                            <code class="col-5">
+                                                <div id="Ball3" class="ball"></div>
+                                            </code>
+                                            <script>
+                                                $("#Ball3").mouseover(function(){
+                                                    $(this).css("border-radius", "10px");
+                                                })
+                                                $("#Ball3").mouseout(function(){
+                                                    $(this).css("border-radius", "50%");
+                                                })
+                                            </script>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h4 id="subHeader3_2">jQuery Effects</h4>
+                                jQuery Effects คือเอฟเฟคต่างๆของ jQuery ใช้สำหรับการเพิ่มลูกเล่นต่าง ๆ ให้กับหน้าเว็บ <br>
+                                <b style="color:rgb(233, 123, 6)">syntax:</b> $(selector).Effect(speed, callback)<br>
+                                <small class="text-info">**speed จะกำหนดเป็น slow, normal, fast หรือกำหนดค่าเป็น ms</small><br>
+                                <small class="text-info">**callback คือ function ที่ถูกเรียกใช้งานเมื่อ animated complete<br> ใช้เมื่อเราต้องการให้ jQuery ทำคำสั่งแรกจนเสร็จก่อน แล้วจึงค่อยเริ่มทำคำสั่งที่สอง</small>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th class="col-5">Effect</th>
+                                        <th>คำอธิบาย</th>
+                                    </tr>
+                                    <tr><td>.hide()</td><td>ซ่อน element</td></tr>
+                                    <tr><td>.show()</td><td>แสดง element</td></tr>
+                                    <tr><td>.toggle()</td><td>สลับระหว่างการซ่อนกับการแสดง element</td></tr>
+                                    <tr><td>.slideDown()</td><td>เลื่อน element จากบนลงล่าง(แสดง)</td></tr>
+                                    <tr><td>.slideUp()</td><td>เลื่อน element จากล่างขึ้นบน(ซ่อน)</td></tr>
+                                    <tr><td>.slideToggle()</td><td>สลับระหว่างการเลื่อนลงกับการเลื่อนขึ้น</td></tr>
+                                    <tr><td>.fadeIn()</td><td>แสดง element จากจางไปเข้ม</td></tr>
+                                    <tr><td>.fadeOut()</td><td>ซ่อน element จากเข้มไปจาง</td></tr>
+                                    <tr><td>.fadeTo()</td><td>ปรับความเข้มของ element</td></tr>
+                                    <tr><td>.animate()</td><td>สร้าง effect เอง</td></tr>
+                                </table>
+                                <h5>Animation</h5>
+                                .animate() เอาไว้ใช่สร้าง animation อย่างง่าย ๆ <br>
+                                <b style="color:rgb(233, 123, 6)">systax:</b> $(selector).animate({params, speed, callback})<br>
+                                <small class="text-info">**params ใช้กำหนดลักษณะการเคลื่อนไหวของแอนิเมชั่น</small>
+                                <div class="row">
+                                    <code class="col-6">
+                                        <span id="exScript">
+                                            <div>$(document).ready(function(){
+                                                <div>
+                                                    let state = true;
+                                                    setInterval(()=>{
+                                                        <div>
+                                                            state?(state=false): (state=true);<br>
+                                                            $("#Ball4").animate({
+                                                                <div>
+                                                                    borderRadius: state?'50%': '10px',<br>
+                                                                    left: state?'10%': '70%'
+                                                                </div>
+                                                            }, 100, ()=>{
+                                                                <div>?($("#Ball4").css("background", "red")):($("#Ball4").css("background", "blue"))</div>
+                                                            });
+                                                        </div>
+                                                    }, 1000)
+                                                </div>
+                                              });</div>
+                                        </span><br>
+                                        <span id="exBody">
+                                            <div>
+                                                <span id="exBall"></span>
+                                            </div>
+                                        </span>
+                                    </code>
+                                    <code class="col-5">
+                                        <div id="Ball4" class="ball"></div>
+                                    </code>
+                                    <script>
+                                        let state = true;
+                                        setInterval(()=>{
+                                            state?(state=false): (state=true);
+                                            $("#Ball4").animate({
+                                                borderRadius: state?'50%': '10px',
+                                                left: state?'10%': '70%'
+                                            }, 100, ()=>{
+                                                state?($("#Ball4").css("background", "red")):($("#Ball4").css("background", "blue"))
+                                            });
+                                        }, 1000)
+                                    </script>
+                                </div>
+                            </li>
+                            <li>
+                                <h4 id="subHeader3_3">jQuery DOM</h4>
+                                DOM = Document Object Model<br>
+                                <p>
+                                    DOM คือ การมองส่วนต่างๆของหน้าเว็บให้เป็น object ทำให้เราสามารถแยกแยะ
+                                และเข้าถึงแต่ล่ะ object ได้ง่ายขึ้น ทั้งนี้ก็เพื่อให้เราสามารถเรียกใช้ object เหล่านั้นได้
+                                </p>
+                                <ol>
+                                    <li>
+                                        Get content
+                                        <table class="table table-striped">
+                                            <tr><th class="col-5">Method</th><th>คำอธิบาย</th></tr>
+                                            <tr><td>.attr()</td><td>get & set attribute</td></tr>
+                                            <tr><td>.prop()</td><td>get & set property</td></tr>
+                                            <tr><td>.html()</td><td>get & set content ในรูปแบบ html tag</td></tr>
+                                            <tr><td>.text()</td><td>get & set content ในรูปแบบ text</td></tr>
+                                            <tr><td>.val()</td><td>get & set ค่าของ form</td></tr>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        Manipulation Methods
+                                        <table class="table table-striped">
+                                            <tr><th class="col-5">Method</th><th>คำอธิบาย</th></tr>
+                                            <tr><td>.append()</td><td>แทรก content ต่อท้าย content ที่มีอยู่ของ selector ที่เลือกไว้</td></tr>
+                                            <tr><td>.before()</td><td>แทรก content ก่อน selector ที่เลือกไว้</td></tr>
+                                            <tr><td>.after()</td><td>แทรก content หลัง selector ที่เลือกไว้</td></tr>
+                                            <tr><td>.prepend()</td><td>แทรก content ข้างหน้า content ที่มีอยู่ของ selector ที่เลือกไว้</td></tr>
+                                            <tr><td>.remove()</td><td>ลบ element ที่ selector เลือกไว้</td></tr>
+                                            <tr><td>.replaceAll()</td><td>แทนที่ข้อความ หรือ tag ของ selector</td></tr>
+                                            <tr><td>.wrap()</td><td>ครอบ selector ที่เลือกไว้ด้วย html tag ต่าง ๆ</td></tr>
+                                        </table>
+                                    </li>
+                                </ol>
+                                
+                            </li>
+                        </ul>
+
+                    </p>
+                    <h2>ตัวอย่างการใช้งาน</h2>
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

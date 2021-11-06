@@ -1,0 +1,47 @@
+#importEx1::after{
+    content: "<script type=\"text/javascript\" src=\"jquery.js\"></script>";
+}
+#importEx2::after{
+    content: "<script src=https://ajax.googleapis.com/ajax/libs/jQuery/3.5.1/jQuery.min.js></script>";
+    user-select: all;
+}
+#exScript::before{
+    content: "<script>";
+}
+#exScript::after{
+    content: "</script>";
+}
+#exBody::before{
+    content: "<body>";
+}
+#exBody::after{
+    content: "</body>";
+}
+#exButton::before{
+    content: "<button id='btn'>";
+}
+#exButton::after{
+    content: "</button>";
+}
+.Ball{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    margin: auto;
+    background-color: red;
+    cursor: pointer;
+    transition: 1s;
+}
+#exBall::before{
+    content: "<div id='Ball'>";
+}
+#exBall::after{
+    content: "</div>";
+}
+#exTf::before{
+    content: "<input type='text'/>";
+}
+
