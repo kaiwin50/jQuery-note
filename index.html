@@ -241,12 +241,22 @@
                                         <li>
                                             $("selector1, selector2,.... selectorN")  เป็นการเลือก object แบบหลายๆอัน (multi selector)
                                         </li>
+                                        <li>
+                                            $("selector:first") first match query
+                                        </li>
                                     </ol>
                                     <br>
                                     และ action คือ method ต่าง ๆ ที่จะให้ element นั้น ๆ กระทำ
-                                    <code>
-                                        $("p").css("background-color","yellow");
-                                    </code>
+                                    <div class="row">
+                                        <code class="col-6">
+                                            $("p:first").css("background-color","yellow");
+                                        </code>
+                                        <code class="col-5">
+                                            <p>first paragraph</p>
+                                            <p>second paragraph</p>
+                                        </code>
+                                    </div>
+                                        
                             </li>
                             <li>
                                 <h4 id="subHeader3_1">jQuery Event Functions</h4>
